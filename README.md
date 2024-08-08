@@ -14,7 +14,7 @@ The Search Engine thus performs an initial matchmaking process between the manuf
 
 Classification of the Search Engine based on the MIS architecture.
 
-<img width="605" alt="SE" src="https://github.com/user-attachments/assets/d12cada7-2d9b-4231-8550-59c645a54dbf">
+![SE](/../main/docs/src/images/SE.PNG)
 
 The following use cases can be performed with the Search Engine.
 
