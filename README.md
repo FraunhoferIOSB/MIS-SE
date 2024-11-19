@@ -21,6 +21,7 @@ The following use cases can be performed with the Search Engine.
 ###  Use Cases of the Search Engine
 UC3 **Requesting manufacturer information**
 - Data consumer can use the MIS to query information such as production capabilities for a data provider.
+
 UC4 **Search for potential suppliers/supply chains**
 - Identification of potential suppliers/supply chains for a given production process.
 
