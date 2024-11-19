@@ -1,9 +1,7 @@
 #MIS Search Engine GraphQL Schema v0.1.0
 
-######### Factory-X MaaS MIS & Matchory ##########
-######### Factory-X MaaS MIS & instawerk #########
 type Query {
-	getCapabilityNameList(): CapabilityResponse!
+	getCapabilityNameList: CapabilityResponse!
 	searchFactoriesByCapabilities(filter: [CapabilityFilter]): SupplierResponse!
 }
 

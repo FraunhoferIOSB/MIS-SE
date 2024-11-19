@@ -1,0 +1,16 @@
+{
+	getCapabilityNameList {
+		  code
+		  success
+		  message
+		  capabilityNameList {
+			  result {
+				Capability {
+					sourceId
+					label
+					labelLanguageCode
+				  }
+			  }
+		  }
+	  }
+  }
