@@ -19,17 +19,21 @@ Classification of the Search Engine based on the MIS architecture.
 The following use cases can be performed with the Search Engine.
 
 ###  Use Cases of the Search Engine
-4. UC4 **Search for potential suppliers/supply chains**
+UC3 **Requesting manufacturer information**
+- Data consumer can use the MIS to query information such as production capabilities for a data provider.
+
+UC4 **Search for potential suppliers/supply chains**
 - Identification of potential suppliers/supply chains for a given production process.
 
 ### Link to the other MIS components
 
 | Components    | Goals         | URL           |
 | ------------- | ------------- | ------------- |
-| **Supplier Knowledge Base (SKB)** | Knowledge base for manufacturer/supplier information including capabilities, properties, etc. | [MIS-SKB](https://github.com/FraunhoferIOSB/MIS-SKB)  |
+| **Supplier Knowledge Base (SKB)** | Knowledge base for manufacturer/supplier information e.g. capabilities, properties, etc. | [MIS-SKB](https://github.com/FraunhoferIOSB/MIS-SKB)  |
 | **Asset Management and Refinement Application (AMARA)**  | Automatically derives manufacturing capabilities from machine specifications with Large Language Models (LLM)  | [MIS-AMARA](https://github.com/FraunhoferIOSB/MIS-AMARA) |
-| **Asset Management Service (AMS)**  | Interface to manage asset information like enterprise, factories, manufacturing capabilities, etc. within the knowledge base |[MIS-AMS](https://github.com/FraunhoferIOSB/MIS-AMS)  |
+| **Asset Management Service (AMS)**  | Interface to manage asset information like machines, manufacturing capabilities, etc. within the knowledge base |[MIS-AMS](https://github.com/FraunhoferIOSB/MIS-AMS)  |
 | **Search Engine (SE)**  | Provision of manufacturer information such as production capabilities for a given process description  | [MIS-SE](https://github.com/FraunhoferIOSB/MIS-SE)  |
+| **Multi-Port Connector (MPC)**  | The Multi Port Connector (MPC) is a connector to address the APIs of various Factory Connectors.  | [MIS-MPC](https://github.com/FraunhoferIOSB/MIS-MPC)  |
 
 ## Contributing
 
