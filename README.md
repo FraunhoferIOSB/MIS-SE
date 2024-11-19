@@ -19,7 +19,9 @@ Classification of the Search Engine based on the MIS architecture.
 The following use cases can be performed with the Search Engine.
 
 ###  Use Cases of the Search Engine
-4. UC4 **Search for potential suppliers/supply chains**
+UC3 **Requesting manufacturer information**
+- Data consumer can use the MIS to query information such as production capabilities for a data provider.
+UC4 **Search for potential suppliers/supply chains**
 - Identification of potential suppliers/supply chains for a given production process.
 
 ### Link to the other MIS components
