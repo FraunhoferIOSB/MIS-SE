@@ -1,0 +1,163 @@
+#MIS Search Engine GraphQL Schema v0.1.0
+
+type Query {
+	getCapabilityNameList: CapabilityResponse!
+	searchFactoriesByCapabilities(filter: [CapabilityFilter]): SupplierResponse!
+}
+
+input CapabilityFilter {
+	label: String
+}
+
+interface Response {
+	code: Int!
+	success: Boolean!
+	message: String!
+}
+
+type SupplierResponse implements Response {
+	code: Int!
+	success: Boolean!
+	message: String!
+	factorySets: [Factory]!
+}
+
+type CapabilityResponse implements Response {
+	code: Int!
+	success: Boolean!
+	message: String!
+	capabilityNameList: [Capability]!
+}
+
+# A factory which is part of an enterprise and contains production resources.
+type Factory {
+	# Unique knowledge base identifier (automatically generated)
+	id: ID!
+	# Label, e.g. name, of the factory.
+	label: String
+	# Language code of the label following xml:lang (https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
+	labelLanguageCode: String
+	# Description of the factory
+	description: String
+	# Language code of the description following xml:lang (https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
+	descriptionLanguageCode: String
+	# Location of the factory
+	location: Location
+	# Enterprise the factory belongs to
+	enterprise: Enterprise!
+	# Properties of the factory
+	properties: [Property]
+	# Machines located in the factory
+	machines: [Machine]
+}
+
+# A machine of a factory as a production resource which should be linked to processes and capabilities.
+type Machine implements ProductionResource {
+	#-------ProductionResource fields------
+	# Unique knowledge base identifier (automatically generated).
+	id: ID!
+	# Arbitrary id defined by the user, e.g. to identify the object in an application.
+	sourceId: ID
+	# Label naming the machine, e.g. a machine identifier.
+	label: String!
+	# Language code of the label following xml:lang (https://www.rfc-editor.org/rfc/bcp/bcp47.txt).
+	labelLanguageCode: String!
+	# Description of the machine.
+	description: String
+	# Language code of the description following xml:lang (https://www.rfc-editor.org/rfc/bcp/bcp47.txt).
+	descriptionLanguageCode: String
+	# Capabilities the production resource provides.
+	providedCapabilities: [Capability]
+	#--------------------------------------
+	# Arbitrary machine properties like dimensions or standardized identifiers.
+	machineProperties: [Property]
+}
+
+# Abstract production resource definition. It is specialized by Machine and HumanResource.
+interface ProductionResource {
+	# Unique knowledge base identifier (automatically generated).
+	id: ID!
+	# Arbitrary id defined by the user, e.g. to identify the object in an application.
+	sourceId: ID
+	# Label, e.g. name, of the production resource.
+	label: String!
+	# Language code of the label following xml:lang (https://www.rfc-editor.org/rfc/bcp/bcp47.txt).
+	labelLanguageCode: String!
+	# Description of the production resource.
+	description: String
+	# Language code of the description following xml:lang (https://www.rfc-editor.org/rfc/bcp/bcp47.txt).
+	descriptionLanguageCode: String
+	# Capabilities the production resource provides.
+	providedCapabilities: [Capability]
+}
+
+# A production capability. The capabilities are ordered hierarchically.
+type Capability {
+	# Unique knowledge base identifier (automatically generated)
+	id: ID!
+	# Arbitrary id defined by the user, e.g. to identify the object in an application
+	sourceId: ID
+	# Label, e.g. name, of the capability.
+	label: String
+	# Language code of the label following xml:lang (https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
+	labelLanguageCode: String
+	# Description of the capability
+	description: String
+	# Language code of the description following xml:lang (https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
+	descriptionLanguageCode: String
+	# Arbitrary properties of the capability
+	properties: [Property]
+}
+
+# A location containing coordinates and an address
+type Location {
+	# Unique knowledge base identifier (automatically generated)
+	id: ID!
+	# Latitude of the location
+	latitude: String
+	# Longitude of the location
+	longitude: String
+	# Street name of the location
+	street: String
+	# Street/house number of the location
+	streetNumber: String
+	# Zipcode of the location
+	zip: String
+	# City of the location
+	city: String
+	# Country of the location
+	country: String
+}
+
+type Enterprise {
+	# Unique knowledge base identifier (automatically generated)
+	id: ID!
+	# Label, e.g. name, of the enterprise.
+	label: String!
+	# Language code of the label following xml:lang (https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
+	labelLanguageCode: String!
+	# Description of the enterprise
+	description: String
+	# Language code of the description following xml:lang (https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
+	descriptionLanguageCode: String
+	# Location of the enterprise
+	location: Location
+}
+
+# A property is a slice of information about an entity or capability.
+type Property {
+	# Unique knowledge base identifier (automatically generated).
+	id: ID!
+	# Arbitrary id defined by the user, e.g. to identify the object in an application.
+	sourceId: ID	
+	# Label of the property.
+	label: String
+	# Language code of the label following xml:lang (https://www.rfc-editor.org/rfc/bcp/bcp47.txt).
+	labelLanguageCode: String
+	# Description of the property.
+	description: String
+	# Language code of the description following xml:lang (https://www.rfc-editor.org/rfc/bcp/bcp47.txt).
+	descriptionLanguageCode: String
+	# The actual value of the property, if one exists.
+	value: String
+}
