@@ -1,0 +1,15 @@
+POST http://localhost:8082/graphql
+Content-Type: application/json
+Authorization: Bearer <Token>
+X-REQUEST-TYPE: GraphQL
+ 
+{
+  getCapabilities { 
+    code 
+    success 
+    message 
+    capabilities {
+      label
+    } 
+  }
+}

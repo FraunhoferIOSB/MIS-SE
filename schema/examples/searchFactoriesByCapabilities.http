@@ -1,0 +1,76 @@
+POST http://localhost:8082/graphql
+Content-Type: application/json
+Authorization: Bearer <Token>
+X-REQUEST-TYPE: GraphQL
+ 
+{
+	searchFactoriesByCapabilities(filter: [
+		  	{
+			  	label: "subtractive:2D-Laserschneiden"
+		  	},
+		  	{
+			  	label: "subtractive:milling"
+		  	}
+	]) {
+			code
+			success
+			message
+			factorySets {
+				id
+				label
+				labelLanguageCode
+				description
+				descriptionLanguageCode
+				enterprise {
+					id
+					label
+					labelLanguageCode
+					description
+					descriptionLanguageCode
+				}
+				properties {
+					id
+					sourceId
+					label
+					labelLanguageCode
+					description
+					descriptionLanguageCode
+					value
+				}
+				machines {
+					id
+					sourceId
+					label
+					labelLanguageCode
+					description
+					descriptionLanguageCode
+					providedCapabilities {
+						id
+						sourceId
+						label
+						labelLanguageCode
+						description
+						descriptionLanguageCode
+						properties {
+							id
+							sourceId
+							label
+							labelLanguageCode
+							description
+							descriptionLanguageCode
+							value
+						}
+					}
+					machineProperties {
+						id
+						sourceId
+						label
+						labelLanguageCode
+						description
+						descriptionLanguageCode
+						value
+					}
+				}
+			}
+		}
+}

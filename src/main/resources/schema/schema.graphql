@@ -1,7 +1,7 @@
 #MIS Search Engine GraphQL Schema v0.1.0
 
 type Query {
-	getCapabilityNameList: CapabilityResponse!
+	getCapabilities: CapabilityListResponse!
 	searchFactoriesByCapabilities(filter: [CapabilityFilter]): SupplierResponse!
 }
 
@@ -22,11 +22,11 @@ type SupplierResponse implements Response {
 	factorySets: [Factory]!
 }
 
-type CapabilityResponse implements Response {
+type CapabilityListResponse implements Response {
 	code: Int!
 	success: Boolean!
 	message: String!
-	capabilityNameList: [Capability]!
+	capabilities: [Capability]!
 }
 
 # A factory which is part of an enterprise and contains production resources.
